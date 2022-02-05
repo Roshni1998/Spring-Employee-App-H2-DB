@@ -49,7 +49,6 @@ public class EmployeeService {
 		if(entity.getId()  == null) 
 		{
 			entity = repository.save(entity);
-			
 			return entity;
 		} 
 		else 
@@ -63,13 +62,10 @@ public class EmployeeService {
 				newEntity.setEmail(entity.getEmail());
 				newEntity.setFirstName(entity.getFirstName());
 				newEntity.setLastName(entity.getLastName());
-
 				newEntity = repository.save(newEntity);
-				
 				return newEntity;
 			} else {
 				entity = repository.save(entity);
-				
 				return entity;
 			}
 		}
@@ -78,9 +74,7 @@ public class EmployeeService {
 	public void deleteEmployeeById(Long id) throws RecordNotFoundException 
 	{
 		System.out.println("deleteEmployeeById");
-		
 		Optional<EmployeeEntity> employee = repository.findById(id);
-		
 		if(employee.isPresent()) 
 		{
 			repository.deleteById(id);
